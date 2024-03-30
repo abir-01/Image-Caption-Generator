@@ -16,7 +16,7 @@ const App = () => {
     setcaptions([])
     let formData = new FormData()
     formData.append('file', image.data)
-    axios.post('http://localhost:5000/image', formData)
+    axios.post('https://image-caption-generator-brb5.onrender.com/image', formData)
       .then((res) => {
         setloading(false);
         seterr('')
