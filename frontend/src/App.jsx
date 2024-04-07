@@ -16,7 +16,8 @@ const App = () => {
     setcaptions([])
     let formData = new FormData()
     formData.append('file', image.data)
-    axios.post('http://image-caption.ap-south-1.elasticbeanstalk.com/image', formData)
+    // axios.post('http://image-caption.ap-south-1.elasticbeanstalk.com/image', formData)
+    axios.post('https://looplink-image-generator.linkin.tw/image', formData)
       .then((res) => {
         setloading(false);
         seterr('')
