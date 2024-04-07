@@ -16,7 +16,7 @@ const App = () => {
     setcaptions([])
     let formData = new FormData()
     formData.append('file', image.data)
-    axios.post('https://image-caption-generator-brb5.onrender.com/image', formData)
+    axios.post('http://image-caption.ap-south-1.elasticbeanstalk.com/image', formData)
       .then((res) => {
         setloading(false);
         seterr('')
@@ -34,6 +34,7 @@ const App = () => {
       preview: URL.createObjectURL(e.target.files[0]),
       data: e.target.files[0],
     }
+    console.log(e.target.files[0]);
     setImage(img)
   }
 

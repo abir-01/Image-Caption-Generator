@@ -1,11 +1,10 @@
+const dotenv = require('dotenv').config();
 const express = require('express')
 const app = express()
-const port = 5000
 const cors = require('cors')
 const multer = require('multer')
 const { GoogleGenerativeAI } = require("@google/generative-ai");
-const fs = require("fs");
-const dotenv = require('dotenv').config();
+const port = process.env.PORT || 5000
 
 // Access your API key as an environment variable (see "Set up your API key" above)
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
@@ -61,7 +60,9 @@ async function run(image) {
   return data
 }
 
-
+app.get('/',(req,res)=>{
+  res.status(200).send("Welcome to image-caption generator. Please use /image route for function");
+})
 
 app.post('/image', upload.single('file'), async function (req, res) {
   var image = req.file;
